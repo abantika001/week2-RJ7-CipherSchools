@@ -9,7 +9,7 @@ const AllUserList = () => {
     let allUsers = [
         { name: "John", email: "john@email.com", phoneNumber: "+91-9876543210"},
         { name: "Shreyus", email: "shreyus@email.com", phoneNumber: "+91-78964563217"},
-        { name: "Nilanjan", email: "nilanjan@email.com", phoneNumber: "+91-9876543210"},
+        { name: "Abantika", email: "abantika@email.com", phoneNumber: "+91-9876543210"},
     ];
 
     let setStateName = (name) => {
