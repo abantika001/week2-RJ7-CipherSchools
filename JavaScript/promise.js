@@ -34,21 +34,60 @@
 // console.log(addTwoNumbers(2, 3));
 
 
-function addTwoNumbers(num1, num2) {
-    let myPromise = new Promise((fulfilled, notFulfilled) => {
-    setTimeout(() => {
-        console.log("Inside setTimeout");
-        fulfilled(num1 + num2);
-    }, 5000);
-    notFulfilled (new Error ("An error occured!"));
-    });
-}
+// function addTwoNumbers(num1, num2) {
+//     let myPromise = new Promise((fulfilled, notFulfilled) => {
+//     setTimeout(() => {
+//         console.log("Inside setTimeout");
+//         fulfilled(num1 + num2);
+//     }, 5000);
+//     notFulfilled (new Error ("An error occured!"));
+//     });
+// }
 
     
-addTwoNumbers(10, 5)
-.then(() => {
-    console.log("Promise was fulfilled");
-})
-.catch(() => {
-    console.log("Promise was not fulfilled");
-});
+// addTwoNumbers(10, 5)
+// .then(() => {
+//     console.log("Promise was fulfilled");
+// })
+// .catch(() => {
+//     console.log("Promise was not fulfilled");
+// });
+
+
+
+
+let addNumbers = (...args) => {
+    let sum = 0;
+    for (let el of args) {
+        sum = el;
+    }
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(sum);
+        }, 3000);
+    });
+};
+
+// let testfunction = () => {
+//     addNumbers(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+//     .then((result) => {
+//         console.log(result);
+//     })
+//     .catch((err) => {
+//         console.assertlog(err);
+//     });
+// };
+
+
+let testfunction = async () => {
+    try {
+        let sum = await addNumbers(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        console.log(sum);
+    } catch (err) {
+        console.log(err);
+    } finally {
+        console.log("Finally");
+    }
+};
+
+testfunction();
